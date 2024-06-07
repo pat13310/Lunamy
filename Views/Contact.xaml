@@ -1,0 +1,7 @@
+﻿<Page x:Class="Lunamy.Views.Contact"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid>
+        <TextBlock Text="Page Contact" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24"/>
+    </Grid>
+</Page>

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34902.65
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lunamy", "Lunamy.csproj", "{6570EC17-6C2A-41F1-9F6D-35ED3EE3141B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiPlateform", "..\ApiPlateform\ApiPlateform.csproj", "{5A77792B-4FBE-454E-9BB0-822B1436956A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6570EC17-6C2A-41F1-9F6D-35ED3EE3141B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6570EC17-6C2A-41F1-9F6D-35ED3EE3141B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6570EC17-6C2A-41F1-9F6D-35ED3EE3141B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6570EC17-6C2A-41F1-9F6D-35ED3EE3141B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A77792B-4FBE-454E-9BB0-822B1436956A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A77792B-4FBE-454E-9BB0-822B1436956A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A77792B-4FBE-454E-9BB0-822B1436956A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A77792B-4FBE-454E-9BB0-822B1436956A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F33522A0-1F85-4A02-92B0-BC56CB889F21}
+	EndGlobalSection
+EndGlobal
