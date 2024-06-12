@@ -9,20 +9,34 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Resources\agence.png" />
+    <None Remove="Resources\assurance.png" />
+    <None Remove="Resources\house2.png" />
+    <None Remove="Resources\lunamy.png" />
+    <None Remove="Resources\partner.png" />
+    <None Remove="Resources\user.png" />
+  </ItemGroup>
+
   
   
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Helpers\" />
-    <Folder Include="Resources\" />
     <Folder Include="Services\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+    <Resource Include="Resources\agence.png" />
+    <Resource Include="Resources\assurance.png" />
 	 <Resource Include="Resources\house1.png">
 	   <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	 </Resource>
+	 <Resource Include="Resources\house2.png" />
+	 <Resource Include="Resources\lunamy.png" />
+	 <Resource Include="Resources\partner.png" />
+	 <Resource Include="Resources\user.png" />
   </ItemGroup>
 
   <ItemGroup>

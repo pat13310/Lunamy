@@ -61,6 +61,10 @@ namespace Lunamy.ViewModels
                     CurrentPage = new Partner();
                     UpdateSelections(false, false, false, false, true);
                     break;
+                case "Login":
+                    CurrentPage = new Login();
+                    UpdateSelections();
+                    break;
                 default:
                     CurrentPage = new Home();
                     UpdateSelections(true, false, false, false);

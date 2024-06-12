@@ -6,7 +6,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Lunamy" Height="450" Width="800">
+        Title="Lunamy" Height="600" Width="1024">
     
     <Window.DataContext>
         <vm:MainViewModel/>
@@ -81,6 +81,19 @@
                                 <Setter Property="Foreground" Value="White"/>
                             </DataTrigger>
                         </Style.Triggers>
+                    </Style>
+                </MenuItem.Style>
+            </MenuItem>
+            <MenuItem Header="Connexion" CommandParameter="Login" Command="{Binding NavigateCommand}">
+                <MenuItem.Style>
+                    <Style TargetType="MenuItem">
+                        <Setter Property="Foreground" Value="Black"/>
+                        <!--<Style.Triggers>
+                            <DataTrigger Binding="{Binding IsPartnerSelected}" Value="True">
+                                <Setter Property="Background" Value="RoyalBlue"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </DataTrigger>
+                        </Style.Triggers>-->
                     </Style>
                 </MenuItem.Style>
             </MenuItem>
