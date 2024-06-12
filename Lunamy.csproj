@@ -9,6 +9,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ApiPlateform\**" />
+    <EmbeddedResource Remove="ApiPlateform\**" />
+    <None Remove="ApiPlateform\**" />
+    <Page Remove="ApiPlateform\**" />
+  </ItemGroup>
+
+  
+  <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Helpers\" />
     <Folder Include="Resources\" />
