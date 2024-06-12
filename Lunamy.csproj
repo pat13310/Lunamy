@@ -20,6 +20,9 @@
 
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+	 <Resource Include="Resources\house1.png">
+	   <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	 </Resource>
   </ItemGroup>
 
   <ItemGroup>

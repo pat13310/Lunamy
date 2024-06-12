@@ -23,6 +23,10 @@ namespace Lunamy.ViewModels
         [ObservableProperty]
         private bool isContactSelected;
 
+        [ObservableProperty]
+        private bool isPartnerSelected;
+
+
         public MainViewModel()
         {
             CurrentPage = new Home(); // Initialiser currentPage
@@ -39,19 +43,23 @@ namespace Lunamy.ViewModels
             {
                 case "Home":
                     CurrentPage = new Home();
-                    UpdateSelections(true, false, false, false);
+                    UpdateSelections(true);
                     break;
                 case "Tips":
                     CurrentPage = new Tips();
-                    UpdateSelections(false, true, false, false);
+                    UpdateSelections(false, true);
                     break;
                 case "About":
                     CurrentPage = new About();
-                    UpdateSelections(false, false, true, false);
+                    UpdateSelections(false, false, true);
                     break;
                 case "Contact":
                     CurrentPage = new Contact();
                     UpdateSelections(false, false, false, true);
+                    break;
+                case "Partner":
+                    CurrentPage = new Partner();
+                    UpdateSelections(false, false, false, false, true);
                     break;
                 default:
                     CurrentPage = new Home();
@@ -62,12 +70,13 @@ namespace Lunamy.ViewModels
             Debug.WriteLine($"IsHomeSelected: {IsHomeSelected}, IsTipsSelected: {IsTipsSelected}, IsAboutSelected: {IsAboutSelected}, IsContactSelected: {IsContactSelected}");
         }
 
-        private void UpdateSelections(bool home, bool tips, bool about, bool contact)
+        private void UpdateSelections(bool home = false, bool tips = false, bool about = false, bool contact = false, bool partner = false)
         {
             IsHomeSelected = home;
             IsTipsSelected = tips;
             IsAboutSelected = about;
             IsContactSelected = contact;
+            IsPartnerSelected = partner;
         }
     }
 }

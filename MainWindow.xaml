@@ -71,6 +71,19 @@
                     </Style>
                 </MenuItem.Style>
             </MenuItem>
+            <MenuItem Header="Devenir partenaire" CommandParameter="Partner" Command="{Binding NavigateCommand}">
+                <MenuItem.Style>
+                    <Style TargetType="MenuItem">
+                        <Setter Property="Foreground" Value="Black"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsPartnerSelected}" Value="True">
+                                <Setter Property="Background" Value="RoyalBlue"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </MenuItem.Style>
+            </MenuItem>
         </Menu>
         <Frame Content="{Binding CurrentPage}"/>
     </DockPanel>
