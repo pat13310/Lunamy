@@ -19,7 +19,6 @@
     <None Remove="Resources\logo-nav.png" />
     <None Remove="Resources\lunamy.png" />
     <None Remove="Resources\partner.jpg" />
-    <None Remove="Resources\partner.png" />
     <None Remove="Resources\user.png" />
   </ItemGroup>
 
@@ -42,7 +41,6 @@
 	 <Resource Include="Resources\logo-nav.png" />
 	 <Resource Include="Resources\lunamy.png" />
 	 <Resource Include="Resources\partner.jpg" />
-	 <Resource Include="Resources\partner.png" />
 	 <Resource Include="Resources\user.png" />
   </ItemGroup>
 
@@ -50,9 +48,6 @@
     <None Update="README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
-    </None>
-    <None Update="Resources\house1.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 

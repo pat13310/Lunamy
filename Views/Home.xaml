@@ -48,7 +48,7 @@
 
         <!-- Background Image with overlay -->
         <Grid Grid.Row="0">
-            <Image Source="pack://application:,,,/Resources/house1.png" Stretch="Fill" Opacity="0.7"/>
+            <Image Source="pack://application:,,,/Resources/house1.jpg" Stretch="Fill" Opacity="0.7"/>
             <Grid Background="#AA000000">
                 <!-- Main Content with ScrollViewer -->
                 <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,0,0,0">

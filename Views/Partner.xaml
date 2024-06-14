@@ -23,7 +23,7 @@
                     <!-- Footer -->
                 </Grid.RowDefinitions>
                 <!-- Image de fond -->
-                <Image Source="pack://application:,,,/Lunamy;component/Resources/partner.png" Stretch="Fill" Opacity="0.7"/>
+                <Image Source="pack://application:,,,/Lunamy;component/Resources/partner.jpg" Stretch="Fill" Opacity="0.7"/>
 
                 <!-- Couche de couleur semi-transparente -->
                 <Grid Background="#BC013239"/>
