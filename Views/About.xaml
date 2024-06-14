@@ -1,7 +1,111 @@
 ﻿<Page x:Class="Lunamy.Views.About"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Grid>
-        <TextBlock Text="Page Qui sommes-nous ?" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24"/>
-    </Grid>
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="clr-namespace:Lunamy.Views"
+      Title="Qui sommes-nous ?" Height="Auto" Width="Auto">
+    <DockPanel LastChildFill="True">
+        <!-- Footer -->
+        <local:FooterUserControl DockPanel.Dock="Bottom"/>
+
+        <!-- Contenu principal avec ScrollViewer englobant l'image et le RichTextBox -->
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <!-- Image en haut avec superposition et texte centré -->
+                <Grid Height="300" Margin="0,0,0,10">
+                    <Image Source="pack://application:,,,/Resources/about.jpg" Stretch="UniformToFill"/>
+                    <Border Background="Black" Opacity="0.75"/>
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="NOTRE HISTOIRE" 
+                                   Foreground="White" 
+                                   FontSize="20" 
+                                   FontWeight="Bold" 
+                                   HorizontalAlignment="Center"/>
+                        <TextBlock Text="DÉCOUVREZ LES VALEURS ET L'HISTOIRE DE LUNAMY" 
+                                   Foreground="White" 
+                                   FontSize="16" 
+                                   TextAlignment="Center" 
+                                   Margin="0,10,0,0"/>
+                    </StackPanel>
+                </Grid>
+
+                <!-- RichTextBox pour le contenu -->
+                <RichTextBox BorderThickness="0" FontSize="16" FontWeight="Light" Margin="20,10,20,10">
+                    <FlowDocument>
+                        <!-- Titre principal -->
+                        <Paragraph Margin="0,15,0,5" LineHeight="28" FontSize="26" FontWeight="Bold" Foreground="Black">
+                            Qui sommes-nous ?
+                        </Paragraph>
+
+                        <!-- Section : Notre vision -->
+                        <Paragraph Margin="0,10,0,5" LineHeight="28" FontSize="22" FontWeight="Bold" Foreground="#007ACC">
+                            Notre vision
+                        </Paragraph>
+                        <Paragraph Margin="0,0,0,10" LineHeight="28">
+                            Vivre un sinistre habitation est un événement marquant de notre vie. Outre le fait de perdre son logement, ses habitudes, parfois même ses souvenirs, c'est un long parcours qui commence.
+                            <LineBreak/>
+                            La première question qui nous vient à l'esprit est alors
+                            <Bold>« Où allons-nous dormir dans les prochains jours ? »</Bold> .
+                            <LineBreak/>
+                            Dormir chez un proche, des amis ou encore à l'hôtel, c'est convenable pour les premiers jours, mais après ?
+                            <LineBreak/>
+                            L'étape suivante est cruciale. Trouver un endroit où l'on se sente bien pour atténuer le traumatisme est fastidieux et répétitif. On veut trouver un endroit rapidement qui permette de nous sentir bien. On épluche quelques sites d'agences immobilières du coin, renseignant inlassablement les mêmes critères de recherche, et encore recommencer sur les sites entre particulier.
+                            <LineBreak/>
+                            <Bold>Pourquoi ne pas regrouper tous ces biens au un même endroit ?</Bold>
+                        </Paragraph>
+
+                        <!-- Section : Notre histoire -->
+                        <Paragraph Margin="0,10,0,5" LineHeight="28" FontSize="22" FontWeight="Bold" Foreground="#007ACC">
+                            Notre histoire
+                        </Paragraph>
+                        <Paragraph Margin="0,0,0,10" LineHeight="28">
+                            Cette mésaventure, nous l'avons vécue. Nous ? Estelle et Anthony, un jeune couple du nord de la France et nos 3 petits chats. Nous avons subi un violent incendie qui a entièrement détruit notre habitation un soir de mai 2019.
+                            <LineBreak/>
+                            Il nous a fallu presque
+                            <Run FontWeight="SemiBold" Foreground="#FF1793C5">15 jours</Run> pour trouver l'endroit où l'on allait passer les 2 prochaines années à attendre la reconstruction de notre maison, et
+                            <Run FontWeight="SemiBold" Foreground="#FF1793C5">15 jours</Run> supplémentaires pour que le logement se libère.
+                            <LineBreak/>
+                            Nous avons eu la chance de pouvoir être hébergés chez les parents d'Estelle durant cette période, mais le besoin de retrouver un
+                            <Run FontWeight="SemiBold">« chez nous »</Run> , même temporaire, se faisait pressant.
+                        </Paragraph>
+
+                        <!-- Section : L'histoire de Lunamy -->
+                        <Paragraph Margin="0,10,0,5" LineHeight="28" FontSize="22" FontWeight="Bold" Foreground="#007ACC">
+                            L'histoire de Lunamy
+                        </Paragraph>
+                        <Paragraph Margin="0,0,0,10" LineHeight="28">
+                            L'idée de Lunamy nous est venue au détour d'une conversation avec notre agent d'assurance au sujet d'une aide au relogement en cas de sinistre :
+                            <Italic>« Aujourd'hui il n'existe aucune solution ou partenariat avec les agences immobilières pour le relogement, c'est aux sinistrés de réaliser cette démarche. »</Italic>
+                            <LineBreak/>
+                            Avec nos compétences en informatique et création de site web, nous avons décidé de nous atteler à cette tâche : Proposer aux assurés une plateforme regroupant toutes les offres de location des agences immobilières avec qui nous sommes partenaires, minimiser le délai entre le choix de votre futur domicile et l'obtention des clés, tout cela en accord avec votre assurance.
+                            <LineBreak/>
+                            Plus d'une année a été nécessaire pour la réflexion et le développement de l'idée de départ.
+                        </Paragraph>
+
+                        <!-- Section : L'équipe -->
+                        <Paragraph Margin="0,10,0,5" LineHeight="28" FontSize="22" FontWeight="Bold" Foreground="#007ACC">
+                            L'équipe
+                        </Paragraph>
+                        <Paragraph Margin="0,0,0,10" LineHeight="28">
+                            Une équipe expérimentée pour vous apporter la solution la plus adaptée à votre besoin :
+                        </Paragraph>
+                        <!-- Liste des membres de l'équipe -->
+                        <List Margin="20,0,0,10">
+                            <ListItem>
+                                <Paragraph>Estelle - Responsable des partenariats</Paragraph>
+                            </ListItem>
+                            <ListItem>
+                                <Paragraph>Anthony - Développeur en chef</Paragraph>
+                            </ListItem>
+                            <ListItem>
+                                <Paragraph>Sophie - Spécialiste en support client</Paragraph>
+                            </ListItem>
+                            <ListItem>
+                                <Paragraph>Marc - Expert en gestion de projet</Paragraph>
+                            </ListItem>
+                        </List>
+                    </FlowDocument>
+                </RichTextBox>
+            </StackPanel>
+        </ScrollViewer>
+    </DockPanel>
 </Page>

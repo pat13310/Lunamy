@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\about.jpg" />
     <None Remove="Resources\agence.png" />
     <None Remove="Resources\assurance.png" />
     <None Remove="Resources\contact.jpg" />
@@ -32,6 +33,7 @@
 
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+    <Resource Include="Resources\about.jpg" />
     <Resource Include="Resources\agence.png" />
     <Resource Include="Resources\assurance.png" />
     <Resource Include="Resources\contact.jpg" />

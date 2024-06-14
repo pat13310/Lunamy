@@ -67,7 +67,7 @@ namespace Lunamy.ViewModels
                     break;
                 default:
                     CurrentPage = new Home();
-                    UpdateSelections(true, false, false, false);
+                    UpdateSelections(true);
                     break;
             }
 
