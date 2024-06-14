@@ -1,13 +1,12 @@
 ﻿<Page x:Class="Lunamy.Views.Home"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.microsoft.com/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Lunamy.Views"
-       
-        Title="Accueil">
-    <Page.Resources>
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.microsoft.com/markup-compatibility/2006"
+      xmlns:local="clr-namespace:Lunamy.Views"
+      Title="Accueil">
 
+    <Page.Resources>
         <!-- Button Style with Hover and Press Effects and Rounded Corners -->
         <Style x:Key="PrimaryButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="#007ACC"/>
@@ -40,33 +39,38 @@
     </Page.Resources>
 
     <Grid>
-        <!-- Background Image -->
-        <Image Source="pack://application:,,,/Resources/house1.png" Stretch="Fill" Opacity="0.7"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <!-- Takes available space -->
+            <RowDefinition Height="Auto"/>
+            <!-- Footer -->
+        </Grid.RowDefinitions>
 
+        <!-- Background Image with overlay -->
+        <Grid Grid.Row="0">
+            <Image Source="pack://application:,,,/Resources/house1.png" Stretch="Fill" Opacity="0.7"/>
+            <Grid Background="#AA000000">
+                <!-- Main Content with ScrollViewer -->
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,0,0,0">
+                    <StackPanel Margin="0,50,0,0">
+                        <TextBlock Text="VOTRE LOGEMENT TEMPORAIRE APRÈS UN SINISTRE" 
+                                   Foreground="White" 
+                                   FontSize="28" 
+                                   FontWeight="Bold" 
+                                   HorizontalAlignment="Center" 
+                                   TextWrapping="Wrap"
+                                   Width="Auto"/>
+                        <Button Content="Trouver mon logement temporaire" 
+                                Style="{StaticResource PrimaryButtonStyle}" 
+                                HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+        </Grid>
 
-        <!-- Overlay with semi-transparent background -->
-        <Grid Background="#AA000000">
-            <!-- Navigation Bar - Fixed Position -->
-            
-
-            <!-- Main Content with ScrollViewer -->
-            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,60,0,0" >
-                <ScrollViewer.Resources>
-                    <Style TargetType="ScrollBar" BasedOn="{StaticResource CustomScrollBar}"/>
-                </ScrollViewer.Resources>
-                <StackPanel Margin="0,50,0,0" Height="520">
-                    <TextBlock Text="VOTRE LOGEMENT TEMPORAIRE APRÈS UN SINISTRE" 
-                               Foreground="White" 
-                               FontSize="28" 
-                               FontWeight="Bold" 
-                               HorizontalAlignment="Center" 
-                               TextWrapping="Wrap"
-                               Width="Auto"/>
-                    <Button Content="Trouver mon logement temporaire" 
-                            Style="{StaticResource PrimaryButtonStyle}" 
-                            HorizontalAlignment="Center"/>
-                </StackPanel>
-            </ScrollViewer>
+        <!-- Footer always at the bottom -->
+        <Grid Grid.Row="1">
+            <local:FooterUserControl/>
         </Grid>
     </Grid>
 </Page>

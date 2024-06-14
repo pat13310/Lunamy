@@ -4,25 +4,35 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Lunamy.Views"
-      Title="Partner">
+      Title="Partner" >
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <!-- Takes available space -->
+            <RowDefinition Height="Auto"/>
+            <!-- Footer -->
+        </Grid.RowDefinitions>
         <!-- Ajout d'un ScrollViewer pour permettre le défilement vertical -->
-        <ScrollViewer VerticalScrollBarVisibility="Hidden">
-            <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <!-- Takes available space -->
+                    <RowDefinition Height="*"/>
+                    <!-- Footer -->
+                </Grid.RowDefinitions>
                 <!-- Image de fond -->
                 <Image Source="pack://application:,,,/Lunamy;component/Resources/partner.png" Stretch="Fill" Opacity="0.7"/>
 
                 <!-- Couche de couleur semi-transparente -->
                 <Grid Background="#BC013239"/>
-                <Grid >
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
 
+
+
+                <Grid >
                     <!-- Texte principal -->
-                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,45,0,0" Grid.Row="0">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,45,0,0" Grid.Row="0">
                         <TextBlock Text="DEVENIR PARTENAIRE" Foreground="White" FontSize="24" FontWeight="Bold" TextAlignment="Center" Margin="0,0,0,20"/>
                         <TextBlock Text="AGENCE IMMOBILIÈRE, ASSUREUR, VOUS" Foreground="White" FontSize="17" TextAlignment="Center" Margin="0,0,0,5"/>
                         <TextBlock Text="SOUHAITEZ PROPOSER UN NOUVEAU SERVICE À" Foreground="White" FontSize="17" TextAlignment="Center" Margin="0,0,0,5"/>
@@ -30,7 +40,7 @@
                     </StackPanel>
 
                     <!-- Section de sélection -->
-                    <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,188,0,0" Background="White" Grid.IsSharedSizeScope="True"  Height="262" Grid.Row="1">
+                    <StackPanel VerticalAlignment="Top" Margin="10,762,-10,0" Background="White" Grid.IsSharedSizeScope="True"  Height="262">
                         <TextBlock Text="Vous partagez nos valeurs et souhaitez rejoindre le projet de lunamy ?" FontSize="15" FontWeight="Bold" TextAlignment="Center" Margin="0,10,0,10" Foreground="DarkSlateGray"/>
                         <TextBlock Text="Quelques minutes suffisent pour devenir partenaire et changer ensemble la vie de milliers de personnes." FontSize="13" TextAlignment="Center" Margin="0,0,0,15" Foreground="DarkSlateGray"/>
                         <TextBlock Text="Vous êtes ?" FontSize="17" FontWeight="Bold" TextAlignment="Center" Margin="0,0,0,7" Foreground="DarkSlateGray"/>
@@ -63,5 +73,8 @@
                 </Grid>
             </Grid>
         </ScrollViewer>
+        <Grid Grid.Row="1">
+            <local:FooterUserControl/>
+        </Grid>
     </Grid>
 </Page>

@@ -27,8 +27,8 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="ScrollBar">
-                        <Grid Background="Transparent">
-                            <Border BorderThickness="1,1,1,1" BorderBrush="Black"></Border>
+                        <Grid Background="#BD000000">
+                            <Border BorderThickness="1,1,1,1" BorderBrush="#FF15BAD0" Background="#D44B626C"></Border>
                             <Track Name="PART_Track">
                                 <Track.Thumb>
                                     <Thumb Background="{StaticResource ScrollBarThumbBackground}" Height="50" Width="8">

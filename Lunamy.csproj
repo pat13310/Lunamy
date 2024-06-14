@@ -12,7 +12,10 @@
   <ItemGroup>
     <None Remove="Resources\agence.png" />
     <None Remove="Resources\assurance.png" />
+    <None Remove="Resources\contact.jpg" />
     <None Remove="Resources\house2.png" />
+    <None Remove="Resources\logo-footer.png" />
+    <None Remove="Resources\logo-nav.png" />
     <None Remove="Resources\lunamy.png" />
     <None Remove="Resources\partner.png" />
     <None Remove="Resources\user.png" />
@@ -30,10 +33,13 @@
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
     <Resource Include="Resources\agence.png" />
     <Resource Include="Resources\assurance.png" />
+    <Resource Include="Resources\contact.jpg" />
 	 <Resource Include="Resources\house1.png">
 	   <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	 </Resource>
 	 <Resource Include="Resources\house2.png" />
+	 <Resource Include="Resources\logo-footer.png" />
+	 <Resource Include="Resources\logo-nav.png" />
 	 <Resource Include="Resources\lunamy.png" />
 	 <Resource Include="Resources\partner.png" />
 	 <Resource Include="Resources\user.png" />
