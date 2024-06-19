@@ -97,18 +97,18 @@
                     <TextBlock Text="Nous contacter" FontSize="24" FontWeight="Bold" Margin="0,5,0,20" FontFamily="Segoe UI Semibold" Foreground="#FFF7F4F4"/>
 
                     <TextBlock Text="Vos noms et prénoms *" FontSize="14" Margin="0" FontFamily="Segoe UI Semilight" Foreground="#FFFFFEFE"/>
-                    <TextBox Width="300"/>
+                    <TextBox Name="nom" Width="300"/>
 
-                    <TextBlock Text="Votre email *" FontSize="14" Margin="0,8,0,0" FontFamily="Segoe UI Semilight" Foreground="White"/>
-                    <TextBox Width="300"/>
+                    <TextBlock  Text="Votre email *" FontSize="14" Margin="0,8,0,0" FontFamily="Segoe UI Semilight" Foreground="White"/>
+                    <TextBox Name="email" Width="300"/>
 
-                    <TextBlock Text="Sujet de votre message *" FontSize="14" Margin="0,8,0,0" FontFamily="Segoe UI Semilight" Foreground="White"/>
-                    <TextBox Width="300"/>
+                    <TextBlock  Text="Sujet de votre message *" FontSize="14" Margin="0,8,0,0" FontFamily="Segoe UI Semilight" Foreground="White"/>
+                    <TextBox Name="sujet" Width="300"/>
 
                     <TextBlock Text="Votre message *" FontSize="14" Margin="0,8,0,5" Foreground="#FFF7F3F3"/>
-                    <TextBox Height="100" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Width="300"/>
+                    <TextBox Name="message"  Height="100" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Width="300"/>
 
-                    <Button Content="Envoyer le message"/>
+                    <Button Content="Envoyer le message" Click="OnSendMessage"/>
                 </StackPanel>
 
                 <!-- Section des informations de contact -->
