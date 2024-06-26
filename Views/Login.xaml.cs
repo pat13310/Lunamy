@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
 
 namespace Lunamy.Views
 {
@@ -7,9 +8,35 @@ namespace Lunamy.Views
     /// </summary>
     public partial class Login : Page
     {
+        public event Action LoginSuccessful;
         public Login()
         {
             InitializeComponent();
+        }
+
+        private async void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            if (this.Username.Text!="" || this.Password.Password != "")
+            {
+                string ?token = await App.Platform.AuthenticateAsync(Username.Text, Password.Password);
+
+                if (token != null)
+                {
+                    // Store the token for future use and navigate to the page Home
+                    App.SetToken(token);
+                    LoginSuccessful.Invoke();
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Impossible de se connecter.Veuillez vérifier vos identifiants!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Il manque le nom de l'utilisateur ou le mot de passe!");
+            }
+
         }
     }
 }

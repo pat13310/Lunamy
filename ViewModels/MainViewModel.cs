@@ -62,7 +62,9 @@ namespace Lunamy.ViewModels
                     UpdateSelections(false, false, false, false, true);
                     break;
                 case "Login":
-                    CurrentPage = new Login();
+                    var loginPage = new Login();
+                    loginPage.LoginSuccessful += LoginPage_LoginSuccessful; ;
+                    CurrentPage = loginPage;
                     UpdateSelections();
                     break;
                 default:
@@ -72,6 +74,11 @@ namespace Lunamy.ViewModels
             }
 
             Debug.WriteLine($"IsHomeSelected: {IsHomeSelected}, IsTipsSelected: {IsTipsSelected}, IsAboutSelected: {IsAboutSelected}, IsContactSelected: {IsContactSelected}");
+        }
+
+        private void LoginPage_LoginSuccessful()
+        {
+            OnNavigate("Home");
         }
 
         private void UpdateSelections(bool home = false, bool tips = false, bool about = false, bool contact = false, bool partner = false)

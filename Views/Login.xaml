@@ -7,6 +7,19 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Login">
+    <Page.Resources>
+        <Style x:Key="LinkTextBlockStyle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="Gray" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="Blue" />
+                    <Setter Property="TextDecorations" Value="Underline" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
+
     <Grid>
         <!-- Dégradé de fond horizontal -->
         <Grid.Background>
@@ -27,35 +40,59 @@
 
                 <!-- Nom d'utilisateur -->
                 <TextBlock Text="Nom d'utilisateur" Foreground="Gray" Margin="0,0,0,5"/>
-                <TextBox Name="UsernameTextBox" Height="30" Margin="0,0,0,15" BorderThickness="0,0,0,1" />
+                <TextBox Name="Username" Height="30" Margin="0,0,0,15" BorderThickness="0,0,0,1" />
 
                 <!-- Mot de passe -->
                 <TextBlock Text="Mot de passe" Foreground="Gray" Margin="0,0,0,5"/>
-                <PasswordBox Name="PasswordTextBox" Height="30" Margin="0,0,0,15" BorderThickness="0,0,0,1" />
+                <PasswordBox Name="Password" Height="30" Margin="0,0,0,15" BorderThickness="0,0,0,1" />
 
                 <!-- Bouton de connexion -->
-                <Button Height="38" Foreground="White" FontWeight="Bold"  Margin="0,0,0,15">
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border CornerRadius="18">
-                                <Border.Background>
+                <Button Height="38" Foreground="White" FontWeight="Bold"  Margin="0,0,0,15" Click="Button_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border CornerRadius="18" Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Background">
+                                <Setter.Value>
                                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                                         <GradientStop Color="#17b7f1" Offset="0.0" />
                                         <GradientStop Color="#17486a" Offset="1.0" />
                                     </LinearGradientBrush>
-                                </Border.Background>
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </Border>
-                        </ControlTemplate>
-                    </Button.Template>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Cursor" Value="Hand" />
+                            <!-- Ajouter le curseur main par défaut -->
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background">
+                                        <Setter.Value>
+                                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                                <GradientStop Color="#1bc4fd" Offset="0.0" />
+                                                <GradientStop Color="#1d4d7e" Offset="1.0" />
+                                            </LinearGradientBrush>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Cursor" Value="Hand" />
+                                    <!-- Changer le curseur en main -->
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
                     Login
                 </Button>
 
                 <!-- Lien Mot de passe oublié -->
-                <TextBlock Text="Mot de passe oublié ?" Foreground="Gray" HorizontalAlignment="Center" Cursor="Hand" Margin="0,0,0,15"/>
+                <TextBlock Text="Mot de passe oublié ?" Style="{StaticResource LinkTextBlockStyle}" HorizontalAlignment="Center" Margin="0,0,0,15"/>
 
                 <!-- Lien Pas encore inscrit -->
-                <TextBlock Text="Pas encore inscrit ?" Foreground="Gray" HorizontalAlignment="Center" Cursor="Hand"  />
+                <TextBlock Text="Pas encore inscrit ?" Style="{StaticResource LinkTextBlockStyle}" HorizontalAlignment="Center" />
             </StackPanel>
         </Border>
     </Grid>

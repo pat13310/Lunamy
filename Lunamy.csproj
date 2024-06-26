@@ -33,6 +33,7 @@
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <ProjectReference Include="..\LunamyLibrary\LunamyLibrary.csproj" />
     <Resource Include="Resources\about.jpg" />
     <Resource Include="Resources\agence.png" />
     <Resource Include="Resources\assurance.png" />
