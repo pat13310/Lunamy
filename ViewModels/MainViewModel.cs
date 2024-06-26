@@ -1,7 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Lunamy.Views;
-using System.Diagnostics;
 using System.Windows.Controls;
 
 namespace Lunamy.ViewModels
@@ -26,58 +25,76 @@ namespace Lunamy.ViewModels
         [ObservableProperty]
         private bool isPartnerSelected;
 
-
-        public MainViewModel()
-        {
-            CurrentPage = new Home(); // Initialiser currentPage
-            NavigateCommand = new RelayCommand<string>(OnNavigate); // Initialiser la commande de navigation
-            OnNavigate("Home");
-        }
+        [ObservableProperty]
+        private bool isConnected; // Ajout de la propriété pour l'état de connexion
 
         public RelayCommand<string> NavigateCommand { get; }
 
+        Home home_page = new ();
+        readonly Tips tips_page = new ();
+        readonly About about_page = new ();
+        readonly Contact contact_page = new ();
+        readonly Partner partner_page = new ();
+        readonly Login login_page = new ();
+        public RelayCommand StartWizardCommand { get; }
+        public MainViewModel()
+        {
+            login_page.LoginSuccessful += LoginPage_LoginSuccessful;
+            CurrentPage = home_page; // Initialiser currentPage
+            NavigateCommand = new RelayCommand<string>(OnNavigate); // Initialiser la commande de navigation
+            //StartWizardCommand = new RelayCommand(OnStartWizard);
+            OnNavigate("Home");
+        }
+
+        //private void OnStartWizard()
+        //{
+        //    CurrentPage = new WizardPage();
+        //}
         private void OnNavigate(string? pageName)
         {
-            Debug.WriteLine($"Navigating to {pageName}");
             switch (pageName)
             {
                 case "Home":
-                    CurrentPage = new Home();
+                    CurrentPage = home_page;
                     UpdateSelections(true);
                     break;
                 case "Tips":
-                    CurrentPage = new Tips();
+                    CurrentPage = tips_page;
                     UpdateSelections(false, true);
                     break;
                 case "About":
-                    CurrentPage = new About();
+                    CurrentPage = about_page;
                     UpdateSelections(false, false, true);
                     break;
                 case "Contact":
-                    CurrentPage = new Contact();
+                    CurrentPage = contact_page;
                     UpdateSelections(false, false, false, true);
                     break;
                 case "Partner":
-                    CurrentPage = new Partner();
+                    CurrentPage = partner_page;
                     UpdateSelections(false, false, false, false, true);
                     break;
                 case "Login":
-                    var loginPage = new Login();
-                    loginPage.LoginSuccessful += LoginPage_LoginSuccessful; ;
-                    CurrentPage = loginPage;
+                    CurrentPage = login_page;
+                    UpdateSelections();
+                    break;
+                case "Logout":
+                    IsConnected = false; // Met à jour l'état de connexion
+                    CurrentPage = login_page;
                     UpdateSelections();
                     break;
                 default:
-                    CurrentPage = new Home();
+                    CurrentPage = home_page;
                     UpdateSelections(true);
                     break;
             }
 
-            Debug.WriteLine($"IsHomeSelected: {IsHomeSelected}, IsTipsSelected: {IsTipsSelected}, IsAboutSelected: {IsAboutSelected}, IsContactSelected: {IsContactSelected}");
+            //Debug.WriteLine($"IsHomeSelected: {IsHomeSelected}, IsTipsSelected: {IsTipsSelected}, IsAboutSelected: {IsAboutSelected}, IsContactSelected: {IsContactSelected}");
         }
 
         private void LoginPage_LoginSuccessful()
         {
+            IsConnected = true;
             OnNavigate("Home");
         }
 
@@ -89,5 +106,7 @@ namespace Lunamy.ViewModels
             IsContactSelected = contact;
             IsPartnerSelected = partner;
         }
+
+        
     }
 }

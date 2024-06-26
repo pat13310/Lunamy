@@ -2,10 +2,14 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Lunamy"
-              xmlns:prism="http://prismlibrary.com/"
+             xmlns:prism="http://prismlibrary.com/" 
+             xmlns:converters="clr-namespace:Lunamy.Converters"
              StartupUri="MainWindow.xaml">
+        
     <Application.Resources>
 
+        <converters:BoolToLoginLogoutConverter x:Key="BoolToLoginLogoutConverter"/>
+        <converters:BoolToLoginLogoutCommandParameterConverter x:Key="BoolToLoginLogoutCommandParameterConverter"/>
         <!-- Police pour le footer -->
 
         <Style x:Key="FooterTextStyle" TargetType="TextBlock">
@@ -51,5 +55,8 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        
+        <!-- Intégration des converters-->
+        
     </Application.Resources>
 </Application>

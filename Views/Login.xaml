@@ -13,7 +13,7 @@
             <Setter Property="Cursor" Value="Hand" />
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Foreground" Value="Blue" />
+                    <Setter Property="Foreground" Value="#FF41ADE2" />
                     <Setter Property="TextDecorations" Value="Underline" />
                 </Trigger>
             </Style.Triggers>

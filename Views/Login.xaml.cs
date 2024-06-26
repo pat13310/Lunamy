@@ -18,14 +18,15 @@ namespace Lunamy.Views
         {
             if (this.Username.Text!="" || this.Password.Password != "")
             {
-                string ?token = await App.Platform.AuthenticateAsync(Username.Text, Password.Password);
+                //string ?token = await App.Platform.AuthenticateAsync(Username.Text, Password.Password);
+                string ?token = await App.Platform.AuthenticateAsync("reaa@lunamy.com", "password");
+                
 
                 if (token != null)
                 {
                     // Store the token for future use and navigate to the page Home
                     App.SetToken(token);
-                    LoginSuccessful.Invoke();
-                    
+                    LoginSuccessful?.Invoke();                    
                 }
                 else
                 {

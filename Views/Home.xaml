@@ -67,7 +67,6 @@
                 </ScrollViewer>
             </Grid>
         </Grid>
-
         <!-- Footer always at the bottom -->
         <Grid Grid.Row="1">
             <local:FooterUserControl/>

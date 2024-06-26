@@ -11,7 +11,12 @@ namespace Lunamy
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new Lunamy.ViewModels.MainViewModel();
+            DataContext = new MainViewModel();
+        }
+
+        private void Frame_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
+        {
+
         }
     }
 }

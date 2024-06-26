@@ -8,7 +8,7 @@ namespace Lunamy.Models
     class SendMail
     {
         private static readonly HttpClient client = new HttpClient();
-        private static string apiUrl = "http://localhost:5000//common/api/v1"; // Remplacez avec l'URL de votre API
+        private readonly static string apiUrl = "http://localhost:5000//common/api/v1"; // Remplacez avec l'URL de votre API
         private static string token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxODcxMDgxOSwianRpIjoiZGI3OTY0MzktMjhiNi00ODMzLTk4MGYtZTI0ODFjM2RmMDJhIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJ1c2VybmFtZSI6InhlbiJ9LCJuYmYiOjE3MTg3MTA4MTksImNzcmYiOiJmYmI0NTE2OC03YzEzLTQyMDQtOTVmMS1lM2ZlYWYxNTQ4OGIiLCJleHAiOjE3MjY0ODY4MTl9.IGTcPlFMVyRmLc_AjPRA6bCrxDDODkUVaifLK5Zn3sk";
 
         public static async Task<bool> Login(string username, string password)
@@ -38,7 +38,7 @@ namespace Lunamy.Models
                     return false;
                 }
             }
-            catch (HttpRequestException e)
+            catch (HttpRequestException)
             {
                 // Gérer les exceptions de connexion ici
                 return false;
@@ -76,7 +76,7 @@ namespace Lunamy.Models
                     // Gérer les erreurs ici
                 }
             }
-            catch (HttpRequestException e)
+            catch (HttpRequestException )
             {
                 // Gérer les exceptions de connexion ici
             }

@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="Lunamy.Views.Step2"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:Lunamy.ViewModels"
+             Height="Auto" Width="Auto">
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Étape 2: Informations de contact" FontSize="20" Margin="10"/>
+            <TextBox Width="200" Margin="10" Name="Email"/>
+            <TextBox Width="200" Margin="10" Name="Phone"/>
+            <Button Content="Suivant" Command="{Binding NextCommand}" Width="100" Margin="10"/>
+            <Button Content="Précédent" Command="{Binding PreviousCommand}" Width="100" Margin="10"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
