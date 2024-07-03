@@ -20,6 +20,13 @@
     <None Remove="Resources\logo-nav.png" />
     <None Remove="Resources\lunamy.png" />
     <None Remove="Resources\partner.jpg" />
+    <None Remove="Resources\start.png" />
+    <None Remove="Resources\step.png" />
+    <None Remove="Resources\step2.png" />
+    <None Remove="Resources\step3.png" />
+    <None Remove="Resources\step4.png" />
+    <None Remove="Resources\step5.png" />
+    <None Remove="Resources\step6.png" />
     <None Remove="Resources\user.png" />
   </ItemGroup>
 
@@ -43,7 +50,20 @@
 	 <Resource Include="Resources\logo-nav.png" />
 	 <Resource Include="Resources\lunamy.png" />
 	 <Resource Include="Resources\partner.jpg" />
+	 <Resource Include="Resources\start.png" />
+	 <Resource Include="Resources\step.png" />
+	 <Resource Include="Resources\step2.png" />
+	 <Resource Include="Resources\step3.png" />
+	 <Resource Include="Resources\step4.png" />
+	 <Resource Include="Resources\step5.png" />
+	 <Resource Include="Resources\step6.png" />
 	 <Resource Include="Resources\user.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\Step4.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

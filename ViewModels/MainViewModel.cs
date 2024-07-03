@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Lunamy.Views;
+using System.Collections.ObjectModel;
 using System.Windows.Controls;
 
 namespace Lunamy.ViewModels
@@ -30,19 +31,39 @@ namespace Lunamy.ViewModels
 
         public RelayCommand<string> NavigateCommand { get; }
 
-        Home home_page = new ();
-        readonly Tips tips_page = new ();
-        readonly About about_page = new ();
-        readonly Contact contact_page = new ();
-        readonly Partner partner_page = new ();
-        readonly Login login_page = new ();
+        Home home_page = new();
+
+        /* partie navigation générale */
+        readonly Tips tips_page = new();
+        readonly About about_page = new();
+        readonly Contact contact_page = new();
+        readonly Partner partner_page = new();
+        readonly Login login_page = new();
+
+
+        /* partie wizard */
+        private UserControl _currentStep;
+        private  int _currentIndex;
+        public ObservableCollection<UserControl> Steps { get; }
         public RelayCommand StartWizardCommand { get; }
+        public RelayCommand NextCommand { get; }
+        public RelayCommand PreviousCommand { get; }
+
+
+
         public MainViewModel()
         {
+            Steps = new ObservableCollection<UserControl>
+            {
+            new Views.Step1(),
+            new Views.Step2(),
+            new Views.Step3()
+            };
+
             login_page.LoginSuccessful += LoginPage_LoginSuccessful;
             CurrentPage = home_page; // Initialiser currentPage
             NavigateCommand = new RelayCommand<string>(OnNavigate); // Initialiser la commande de navigation
-            //StartWizardCommand = new RelayCommand(OnStartWizard);
+            StartWizardCommand = new RelayCommand(StartWizard);
             OnNavigate("Home");
         }
 
@@ -106,7 +127,47 @@ namespace Lunamy.ViewModels
             IsContactSelected = contact;
             IsPartnerSelected = partner;
         }
+        public UserControl CurrentStep
+        {
+            get => _currentStep;
+            set => SetProperty(ref _currentStep, value);
+        }
+        private void StartWizard()
+        {
+            _currentIndex = 0;
+            CurrentStep = Steps[_currentIndex];
+            UpdateCommandStates();
+        }
 
-        
+        private void OnNext()
+        {
+            if (_currentIndex < Steps.Count - 1)
+            {
+                _currentIndex++;
+                CurrentStep = Steps[_currentIndex];
+                UpdateCommandStates();
+            }
+        }
+
+        private void OnPrevious()
+        {
+            if (_currentIndex > 0)
+            {
+                _currentIndex--;
+                CurrentStep = Steps[_currentIndex];
+                UpdateCommandStates();
+            }
+        }
+
+        private bool CanMoveNext() => _currentIndex < Steps.Count - 1;
+        private bool CanMovePrevious() => _currentIndex > 0;
+
+        private void UpdateCommandStates()
+        {
+            NextCommand.NotifyCanExecuteChanged();
+            PreviousCommand.NotifyCanExecuteChanged();
+        }
+
+
     }
 }

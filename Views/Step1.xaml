@@ -5,10 +5,14 @@
              Height="Auto" Width="Auto">
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock Text="Étape 1: Informations de base" FontSize="20" Margin="10"/>
+            <StackPanel  HorizontalAlignment="Left" Orientation="Horizontal">
+                <Image Source="pack://application:,,,/Resources/start.png" Height="50" Width="69"></Image>
+                <TextBlock Text=" Informations de base" FontSize="20" Margin="10"/>
+            </StackPanel>
+           
             <TextBox Width="200" Margin="10" Name="Name"/>
             <TextBox Width="200" Margin="10" Name="FirstName"/>
-            <Button Content="Suivant" Command="{Binding NextCommand}" Width="100" Margin="10"/>
+            <Button Content="Suivant" Command="{Binding NextCommand}" Width="100" Margin="10" Visibility="Hidden"/>
         </StackPanel>
     </Grid>
 </UserControl>
