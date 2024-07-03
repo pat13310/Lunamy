@@ -1,19 +1,17 @@
-﻿<Page x:Class="Lunamy.Views.WizardPage"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:vm="clr-namespace:Lunamy.ViewModels"
-      Title="Assistant">
-    <Page.DataContext>
-        <vm:WizardViewModel/>
-    </Page.DataContext>
+﻿<UserControl x:Class="Lunamy.Views.WizardPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:Lunamy.ViewModels"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             >
     <Grid>
         <StackPanel>
-            <ContentControl Content="{Binding CurrentStep}" />
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
-                <Button Content="Précédent" Command="{Binding PreviousCommand}" Margin="5"/>
-                <Button Content="Suivant" Command="{Binding NextCommand}" Margin="5"/>
-                <Button Content="Terminer" Command="{Binding FinishCommand}" Margin="5"/>
+                <Button Content="Précédent" Command="{Binding WizardViewModel.PreviousCommand}" Margin="5"/>
+                <Button Content="Suivant" Command="{Binding WizardViewModel.NextCommand}" Margin="5"/>
+                <Button Content="Terminer" Command="{Binding WizardViewModel.FinishCommand}" Margin="5"/>
             </StackPanel>
         </StackPanel>
     </Grid>
-</Page>
+</UserControl>

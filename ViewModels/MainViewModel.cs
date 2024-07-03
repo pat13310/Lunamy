@@ -33,6 +33,8 @@ namespace Lunamy.ViewModels
 
         Home home_page = new();
 
+        public WizardViewModel WizardViewModel { get; } = new WizardViewModel();
+
         /* partie navigation générale */
         readonly Tips tips_page = new();
         readonly About about_page = new();
@@ -42,35 +44,28 @@ namespace Lunamy.ViewModels
 
 
         /* partie wizard */
-        private UserControl _currentStep;
+        /*private UserControl _currentStep;
         private  int _currentIndex;
         public ObservableCollection<UserControl> Steps { get; }
         public RelayCommand StartWizardCommand { get; }
         public RelayCommand NextCommand { get; }
         public RelayCommand PreviousCommand { get; }
+        */
 
 
+        [ObservableProperty]
+        private UserControl currentStep;
 
         public MainViewModel()
         {
-            Steps = new ObservableCollection<UserControl>
-            {
-            new Views.Step1(),
-            new Views.Step2(),
-            new Views.Step3()
-            };
-
             login_page.LoginSuccessful += LoginPage_LoginSuccessful;
             CurrentPage = home_page; // Initialiser currentPage
             NavigateCommand = new RelayCommand<string>(OnNavigate); // Initialiser la commande de navigation
-            StartWizardCommand = new RelayCommand(StartWizard);
             OnNavigate("Home");
+            CurrentStep = WizardViewModel.CurrentStep;
         }
 
-        //private void OnStartWizard()
-        //{
-        //    CurrentPage = new WizardPage();
-        //}
+       
         private void OnNavigate(string? pageName)
         {
             switch (pageName)
@@ -110,7 +105,6 @@ namespace Lunamy.ViewModels
                     break;
             }
 
-            //Debug.WriteLine($"IsHomeSelected: {IsHomeSelected}, IsTipsSelected: {IsTipsSelected}, IsAboutSelected: {IsAboutSelected}, IsContactSelected: {IsContactSelected}");
         }
 
         private void LoginPage_LoginSuccessful()
@@ -127,46 +121,46 @@ namespace Lunamy.ViewModels
             IsContactSelected = contact;
             IsPartnerSelected = partner;
         }
-        public UserControl CurrentStep
-        {
-            get => _currentStep;
-            set => SetProperty(ref _currentStep, value);
-        }
-        private void StartWizard()
-        {
-            _currentIndex = 0;
-            CurrentStep = Steps[_currentIndex];
-            UpdateCommandStates();
-        }
+        //public UserControl CurrentStep
+        //{
+        //    get => _currentStep;
+        //    set => SetProperty(ref _currentStep, value);
+        //}
+        //private void StartWizard()
+        //{
+        //    _currentIndex = 0;
+        //    CurrentStep = Steps[_currentIndex];
+        //    UpdateCommandStates();
+        //}
 
-        private void OnNext()
-        {
-            if (_currentIndex < Steps.Count - 1)
-            {
-                _currentIndex++;
-                CurrentStep = Steps[_currentIndex];
-                UpdateCommandStates();
-            }
-        }
+        //private void OnNext()
+        //{
+        //    if (_currentIndex < Steps.Count - 1)
+        //    {
+        //        _currentIndex++;
+        //        CurrentStep = Steps[_currentIndex];
+        //        UpdateCommandStates();
+        //    }
+        //}
 
-        private void OnPrevious()
-        {
-            if (_currentIndex > 0)
-            {
-                _currentIndex--;
-                CurrentStep = Steps[_currentIndex];
-                UpdateCommandStates();
-            }
-        }
+        //private void OnPrevious()
+        //{
+        //    if (_currentIndex > 0)
+        //    {
+        //        _currentIndex--;
+        //        CurrentStep = Steps[_currentIndex];
+        //        UpdateCommandStates();
+        //    }
+        //}
 
-        private bool CanMoveNext() => _currentIndex < Steps.Count - 1;
-        private bool CanMovePrevious() => _currentIndex > 0;
+        //private bool CanMoveNext() => _currentIndex < Steps.Count - 1;
+        //private bool CanMovePrevious() => _currentIndex > 0;
 
-        private void UpdateCommandStates()
-        {
-            NextCommand.NotifyCanExecuteChanged();
-            PreviousCommand.NotifyCanExecuteChanged();
-        }
+        //private void UpdateCommandStates()
+        //{
+        //    NextCommand.NotifyCanExecuteChanged();
+        //    PreviousCommand.NotifyCanExecuteChanged();
+        //}
 
 
     }

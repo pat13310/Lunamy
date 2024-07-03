@@ -3,15 +3,34 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:vm="clr-namespace:Lunamy.ViewModels"
              Height="Auto" Width="Auto">
+    <UserControl.Resources>
+        <Style x:Key="LinkTextBlockStyle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="Gray" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="#FF41ADE2" />
+                    <Setter Property="TextDecorations" Value="Underline" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <StackPanel  HorizontalAlignment="Left" Orientation="Horizontal">
-                <Image Source="pack://application:,,,/Resources/start.png" Height="50" Width="69"></Image>
-                <TextBlock Text=" Informations de base" FontSize="20" Margin="10"/>
+            <StackPanel  HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,0,0,16">
+                <Image Source="pack://application:,,,/Resources/step.png" Height="30" Width="50"></Image>
+                <TextBlock FontSize="20" Margin="10"><Run Text=" "/><Run Language="fr-fr" Text="Type de sinistre"/></TextBlock>
             </StackPanel>
-           
-            <TextBox Width="200" Margin="10" Name="Name"/>
-            <TextBox Width="200" Margin="10" Name="FirstName"/>
+            <TextBlock Margin="16,0,0,-1">Type de sinistre</TextBlock>
+            <ComboBox Width="200" Name="Name" Height="25" Margin="0,5,0,15" BorderThickness="0,0,0,1" ItemsSource="{Binding ElementName=comboBoxItem, Mode=OneWay}">
+                <ComboBoxItem Content="Catastrophes naturelles, tempêtes, cyclones"/>
+                <ComboBoxItem Content="Dégâts des eaux"/>
+                <ComboBoxItem Content="Incendie"/>
+                <ComboBoxItem Content="Vol, cambriolage, hold-up, attaque à mains armées"/>
+            </ComboBox>
+            <TextBlock Margin="16,0,0,2">Numéro de contrat</TextBlock>
+            <TextBox Width="200" Name="FirstName" Height="25" Margin="0,0,0,15" BorderThickness="0,0,0,1"/>
             <Button Content="Suivant" Command="{Binding NextCommand}" Width="100" Margin="10" Visibility="Hidden"/>
         </StackPanel>
     </Grid>

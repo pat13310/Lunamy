@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using Lunamy.ViewModels;
+using System.Windows.Controls;
 
 namespace Lunamy.Views
 {
@@ -10,8 +11,9 @@ namespace Lunamy.Views
         public Home()
         {
             InitializeComponent();
+            DataContext = new WizardViewModel();
         }
 
-        
+
     }
 }

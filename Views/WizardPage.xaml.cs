@@ -18,11 +18,12 @@ namespace Lunamy.Views
     /// <summary>
     /// Logique d'interaction pour Page1.xaml
     /// </summary>
-    public partial class WizardPage : Page
+    public partial class WizardPage : UserControl
     {
         public WizardPage()
         {
             InitializeComponent();
+           
         }
     }
 }

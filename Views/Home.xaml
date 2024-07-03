@@ -4,7 +4,9 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.microsoft.com/markup-compatibility/2006"
       xmlns:local="clr-namespace:Lunamy.Views"
-      Title="Accueil">
+      xmlns:viewmodels="clr-namespace:Lunamy.ViewModels" 
+      Title="Accueil" Cursor="">
+    
 
     <Page.Resources>
         <!-- Button Style with Hover and Press Effects and Rounded Corners -->
@@ -43,6 +45,7 @@
             <RowDefinition Height="*"/>
             <!-- Takes available space -->
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <!-- Footer -->
         </Grid.RowDefinitions>
 
@@ -64,11 +67,26 @@
                                 Style="{StaticResource PrimaryButtonStyle}" 
                                 HorizontalAlignment="Center"/>
                     </StackPanel>
+
                 </ScrollViewer>
+
             </Grid>
         </Grid>
-        <!-- Footer always at the bottom -->
         <Grid Grid.Row="1">
+
+            <StackPanel>
+                <ContentControl Content="{Binding CurrentStep}" Height="200"  >
+                   
+                </ContentControl>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+                    <Button Content="Précédent" Command="{Binding PreviousCommand}" Margin="5"  Style="{StaticResource PrimaryButtonStyle}" />
+                    <Button Content="Suivant" Command="{Binding NextCommand}" Margin="5"  Style="{StaticResource PrimaryButtonStyle}" />
+                    <Button Content="Terminer" Command="{Binding FinishCommand}" Margin="5"  Style="{StaticResource PrimaryButtonStyle}" />
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        <!-- Footer always at the bottom -->
+        <Grid Grid.Row="2">
             <local:FooterUserControl/>
         </Grid>
     </Grid>

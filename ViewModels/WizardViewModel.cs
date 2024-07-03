@@ -20,7 +20,8 @@ namespace Lunamy.ViewModels
             {
                 new Step1(),
                 new Step2(),
-                new Step3()
+                new Step3(),
+                new Step4(),
             };
 
             _currentStepIndex = 0;

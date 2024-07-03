@@ -3,16 +3,39 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:vm="clr-namespace:Lunamy.ViewModels"
              Height="Auto" Width="Auto">
+    <UserControl.Resources>
+        <Style x:Key="LinkTextBlockStyle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="Gray" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="#FF41ADE2" />
+                    <Setter Property="TextDecorations" Value="Underline" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+
+
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
             <StackPanel  HorizontalAlignment="Left" Orientation="Horizontal">
-                <Image Source="pack://application:,,,/Resources/step.png" Height="35" Width="50"></Image>
-                <TextBlock Text=" Informations de contact" FontSize="20" Margin="10,10,20,10"/>
+                <Image Source="pack://application:,,,/Resources/step2.png" Height="30" Width="50"></Image>
+                <TextBlock FontSize="20" Margin="10,10,20,10"><Run Language="fr-fr" Text="Mes informations"/></TextBlock>
             </StackPanel>
-            <TextBox Width="200" Margin="10" Name="Email"/>
-            <TextBox Width="200" Margin="10" Name="Phone"/>
-            <Button Content="Suivant" Command="{Binding NextCommand}" Width="100" Margin="10"/>
-            <Button Content="Précédent" Command="{Binding PreviousCommand}" Width="100" Margin="10"/>
+            <StackPanel Orientation="Horizontal" >
+                <StackPanel Margin="0,0,16,0">
+                    <TextBlock Margin="16,0,0,-1">Numéro d'assuré</TextBlock>
+                    <TextBox Width="200" Name="Numero_assure"  Height="25" Margin="0,5,0,15" BorderThickness="0,0,0,1"/>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Margin="16,0,0,-1">Numéro d'assuré</TextBlock>
+                    <TextBox Width="200" Name="Email"  Height="25" Margin="0,5,0,15" BorderThickness="0,0,0,1"/>
+                </StackPanel>
+            </StackPanel>
+            <TextBox Width="200" Name="Phone"  Height="25" Margin="0,5,0,15" BorderThickness="0,0,0,1"/>
+            <Button Content="Suivant" Command="{Binding NextCommand}" Width="100" Margin="10" Visibility="Hidden"/>
+            <Button Content="Précédent" Command="{Binding PreviousCommand}" Width="100" Margin="10" Visibility="Hidden"/>
         </StackPanel>
     </Grid>
 </UserControl>
